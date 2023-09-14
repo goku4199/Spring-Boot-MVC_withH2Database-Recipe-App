@@ -1,0 +1,124 @@
+error in building testing environment
+-----------------------------
+
+added jar files(bootstrap/jquery(included in bootstrap) to pom.xml
+https://www.webjars.org/
+tested from source code in browser by clicking if the jars are working
+
+-----------------------------
+
+Display a recipe by id
+inserted show.html in templates/recipe
+inserted RecipeController in folder controllers
+implemented findById method in RecipeServiceImpl
+
+-----------------------------
+
+Display remaining Recipe Properties
+edited show.html to display different properies
+
+------------------------------
+
+Processing FormPosts with springMVC
+
+created Commmand objects for data model
+
+created converters for converting domain object back to command object and vica-versa
+
+from the web we will get a command object and we will convert it to domain object and save it in db
+
+edited RecipeServiceImpl saveRecipeCommand. To save the data received from client to the database
+
+A database transaction is a sequence of one or more database operations that are treated as a single unit of work. It is an essential concept in database management systems (DBMS) and ensures that a set of related database operations are executed atomically, consistently, and durably.
+
+A transaction is typically used to maintain data integrity and consistency in a database, especially in multi-user environments where multiple users may access and modify the same data simultaneously. The properties of a database transaction are often referred to as the ACID properties:
+
+------------------------------------------------------------
+
+1CREATE a recipe
+
+created recipeform.html
+
+edited recipeController and added newRecipe method to display recipeForm
+also added saveOrUpdate method to send form data to the database
+
+------------------------------------------------------------
+
+2Update a recipe
+
+inserted updateRecipie() method in RecipeController to show client an update form
+also inside it retrived back the recipeCommand of particular id and sent it to form
+
+in the form we error occured so we edited unit of measures command
+
+-------------------------------------------------------------
+
+turning on debug messages
+go to application.properties
+write logging.level.guru.springframework=debug
+
+-------------------------------------------------------------
+3Delete a recipe
+
+inserted deleteById() method in RecipeController.
+
+--------------------------------------------------------------
+
+1View Ingredients
+
+added list.html in templates/recipe/ingredient/list.html
+also added controller IngredientController to display the ingredient page
+in the list.html there was a bug in unit of measure fetching which was resolved
+------------------------------------------------------------
+
+2Show Ingredients
+
+added IngredientController to display a particular ingredient page
+
+also added recipeId to IngredientCommand.
+
+Java Stream API
+https://chat.openai.com/c/40605eb0-2f97-48a3-b7bc-c25dc1d7925d
+
+
+------------------------------------------------------------
+
+3Update Ingredients(Very Tough)
+
+We added the update recipe ingredient
+saveOrUpdate method in IngredientController
+to show the update form page and implement the update ingredient logic
+
+working of select---name=
+
+https://chat.openai.com/c/40605eb0-2f97-48a3-b7bc-c25dc1d7925d
+
+------------------------------------------------------------
+
+4Add Ingredient
+
+added the link of creating the ingredient in list.html also added an appropriate controller to display the adding new ingredient form
+
+------------------------------------------------------------
+
+5Delete ingredient
+
+added deleteIngredient() method in IngredientController to delete the ingredient
+
+------------------------------------------------------------
+
+@GetMapping
+@RequestMapping("/ingredients")
+
+can be written as
+
+@GetMapping("/ingredients")
+
+------------------------------------------------------------
+
+Add the difficulty enumeration dropdown
+
+here in the recipe form we used a different way to select the difficulty and sending it to server here we made used of th:field and here there was no need of putting selected attribute also we used a different way to extract the enums into an array.
+
+------------------------------------------------------------
+
